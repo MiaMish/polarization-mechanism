@@ -6,7 +6,7 @@ import storage.constants as db_constants
 from analyze.measurement import constants as measurement_constants
 from simulation.config import SimulationType
 
-BASE_RESULT_PATH = "../resources/april06"
+BASE_RESULT_PATH = "../../resources/april06"
 
 
 def to_visualize_name(to_convert):
