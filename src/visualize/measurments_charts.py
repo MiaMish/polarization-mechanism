@@ -6,7 +6,7 @@ import storage.constants as db_constants
 from analyze.measurement import constants as measurement_constants
 from simulation.config import SimulationType
 
-BASE_RESULT_PATH = "../../resources/april06"
+BASE_RESULT_PATH = "../../resources/uniform_dist_result"
 
 
 def to_visualize_name(to_convert):
@@ -45,7 +45,6 @@ def plot_measurement(df, measurement_type, simulation_type, x_column, mechanism_
     filtered_df = filtered_df[filtered_df[db_constants.SIMULATION_TYPE] == simulation_type.name]
     if inner_filters:
         for inner_filter in inner_filters:
-            print(f"inner filter: {inner_filter}")
             if inner_filter[1] is None:
                 inner_filtered_df = filtered_df[filtered_df[inner_filter[0]].isna()]
             else:
@@ -60,6 +59,7 @@ def plot_measurement(df, measurement_type, simulation_type, x_column, mechanism_
     # plt.show()
     plt.savefig(f'{BASE_RESULT_PATH}/figures/{title.replace("-", "").replace(" ", "_")}.png')
     plt.close()
+
 
 def plot_all_charts(df, x_column, mechanism_name, inner_filters=None):
     df[x_column] = df[x_column].astype(float)
