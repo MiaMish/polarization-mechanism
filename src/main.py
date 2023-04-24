@@ -17,7 +17,7 @@ DEFAULT_NUM_OF_REPETITIONS = 40
 use_log_file = False
 
 CONFIG_FILES_DIR = 'resources'
-BASE_RESULT_PATH = "../resources/normal_dist_result"
+BASE_RESULT_PATH = "../resources/21april/uniform_dist_result"
 
 
 def clear_db():

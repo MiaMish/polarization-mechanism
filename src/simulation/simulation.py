@@ -71,8 +71,7 @@ class Simulation(ABC):
                 self.opinions_list[agent_to_switch] = new_agent_opinion
                 continue
             agent_i, agent_j = random.choice(range(self.simulation_config.num_of_agents), 2, replace=False)
-            if self._is_exposed_to_passive(self.opinions_list[agent_j]):
-                self.opinions_list = self._update_opinions(agent_i, agent_j)
+            self.opinions_list = self._update_opinions(agent_i, agent_j)
         results.run_time = datetime.datetime.now() - results.timestamp
         return results
 
