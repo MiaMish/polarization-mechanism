@@ -58,8 +58,8 @@ def find_mio_sigma_for_insistence_mechanism():
 
 
 def find_radical_exposure_etas():
-    print(f"Radical exposure eta between 0 and 10, including 10")
-    to_input_array([0, 10], include_end_limit=True)
+    print(f"Radical exposure eta between 0 and 5, including 5")
+    to_input_array([0, 5], include_end_limit=True)
 
 
 def find_switch_agent_rate():

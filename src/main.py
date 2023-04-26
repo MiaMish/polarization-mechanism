@@ -17,7 +17,7 @@ DEFAULT_NUM_OF_REPETITIONS = 40
 use_log_file = False
 
 CONFIG_FILES_DIR = 'resources'
-BASE_RESULT_PATH = "../resources/21april/uniform_dist_result"
+BASE_RESULT_PATH = "../resources/uniform_dist_result"
 
 
 def clear_db():
@@ -89,28 +89,35 @@ def main():
     clear_db()
     for meta_config in meta_configs_from_yaml(f'{CONFIG_FILES_DIR}/stubbornness_config.yaml'):
         append_configs(**meta_config)
-        run_experiments()
+    run_experiments()
     generate_combined()
 
     StoreResults.init(f'{BASE_RESULT_PATH}/radical_exposure/')
     clear_db()
     for meta_config in meta_configs_from_yaml(f'{CONFIG_FILES_DIR}/radical_exposure_config.yaml'):
         append_configs(**meta_config)
-        run_experiments()
+    run_experiments()
+    generate_combined()
+
+    StoreResults.init(f'{BASE_RESULT_PATH}/radical_exposure_gifs/')
+    clear_db()
+    for meta_config in meta_configs_from_yaml(f'{CONFIG_FILES_DIR}/radical_exposure_gifs_config.yaml'):
+        append_configs(**meta_config)
+    run_experiments(generate_gif=True)
     generate_combined()
 
     StoreResults.init(f'{BASE_RESULT_PATH}/switch_agent_rate/')
     clear_db()
     for meta_config in meta_configs_from_yaml(f'{CONFIG_FILES_DIR}/switch_agent_rate_config.yaml'):
         append_configs(**meta_config)
-        run_experiments()
+    run_experiments()
     generate_combined()
 
     StoreResults.init(f'{BASE_RESULT_PATH}/switch_agent_sigma/')
     clear_db()
     for meta_config in meta_configs_from_yaml(f'{CONFIG_FILES_DIR}/switch_agent_sigma_config.yaml'):
         append_configs(**meta_config)
-        run_experiments()
+    run_experiments()
     generate_combined()
 
 

@@ -1,0 +1,7 @@
+config_id,simulation_type,num_of_agents,num_iterations,mio,mio_sigma,num_of_repetitions,switch_agent_rate,switch_agent_sigma,radical_exposure_eta,truncate_at,epsilon,mark_stubborn_at,display_name,status,timestamp,audit_every_x_iterations
+23979f98-dcfc-479f-895f-2e2f679b8767,REPULSIVE,100,10000,0.2,NULL,40,NULL,NULL,NULL,0.0001,0.2,0.1,Epsilon = 0.1,RunStatus.SUCCESS,1682447840309,250.0
+8be5508f-cb35-4825-a287-0f4222bf9ee8,REPULSIVE,100,10000,0.2,NULL,40,NULL,NULL,2.0,0.0001,0.2,0.1,Epsilon = 0.1,RunStatus.SUCCESS,1682447840309,250.0
+edf594a4-5fe8-4867-8a94-1649e810b240,REPULSIVE,100,10000,0.2,NULL,40,NULL,NULL,5.0,0.0001,0.2,0.1,Epsilon = 0.1,RunStatus.SUCCESS,1682447840309,250.0
+624a1ea3-4dad-4e89-9eed-0a471430a15e,SIMILARITY,100,10000,0.2,NULL,40,NULL,NULL,NULL,0.0001,0.2,0.1,Epsilon = 0.1,RunStatus.SUCCESS,1682447840309,250.0
+bd9b8be9-4ccc-4f55-aff9-726162b71fdd,SIMILARITY,100,10000,0.2,NULL,40,NULL,NULL,2.0,0.0001,0.2,0.1,Epsilon = 0.1,RunStatus.SUCCESS,1682447840309,250.0
+cb254e63-0c8e-48b3-9a68-677f8826cc19,SIMILARITY,100,10000,0.2,NULL,40,NULL,NULL,5.0,0.0001,0.2,0.1,Epsilon = 0.1,RunStatus.SUCCESS,1682447840309,250.0

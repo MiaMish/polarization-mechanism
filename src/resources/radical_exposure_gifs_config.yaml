@@ -1,0 +1,7 @@
+- simulation_types: ['REPULSIVE', 'SIMILARITY']
+  mios: [0.2]
+  mio_sigmas: [null]
+  epsilons: [0.200000]
+  radical_exposure_etas: [null, 2, 5]
+  switch_agent_rates: [null]
+  switch_agent_sigmas: [null]

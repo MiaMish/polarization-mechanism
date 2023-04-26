@@ -4,7 +4,7 @@ import numpy as np
 from scipy.stats import gaussian_kde
 
 from experiment.result import ExperimentResult
-from simulation.config import SimulationConfig
+from simulation.config import SimulationConfig, SimulationType
 
 
 def avg_results_gif(simulation_config: SimulationConfig, results: ExperimentResult, out_file_path: str, num_of_steps_in_gif: int = 25) -> None:
@@ -32,21 +32,20 @@ def avg_results_gif(simulation_config: SimulationConfig, results: ExperimentResu
 
     def animate(i):
         fig.clear()
-        ax = fig.add_subplot(111, aspect='equal', autoscale_on=False, xlim=(0, 1), ylim=(0, 1))
+        ax = fig.add_subplot(111, xlim=(0, 1))
         ax.set_xlim(0, 1)
-        ax.set_ylim(0, 1)
-        ax.grid(b=None)
-        ax.text(0.02, 0.95, 'Step = %d' % i, transform=ax.transAxes)
-        # ax.title.set_text("title")
-        xy = np.vstack([data[i]])
-        z = gaussian_kde(xy)(xy)
-        s = ax.scatter(data[i], data[i], c=z)  # , cmap = "RdBu_r", marker = ".", edgecolor = None
-        cb = fig.colorbar(s)
-        cb.remove()
+        ax.set_ylim(0, 100)
+        if simulation_config.simulation_type == SimulationType.REPULSIVE:
+            title = "Repulsion and Attraction Dynamics"
+        elif simulation_config.simulation_type == SimulationType.SIMILARITY:
+            title = "Only Attraction Dynamics"
+        ax.hist(data[i], range=(0, 1), bins=10, color='blue', alpha=0.5)
+        ax.set_title(title)
+        ax.set_ylabel(r'$\eta$={}'.format(simulation_config.radical_exposure_eta if simulation_config.radical_exposure_eta is not None else 0))
+        # df.plot.hexbin(x='opinion', y='y', gridsize=100, cmap='copper_r', norm=Normalize(0, 5, clip=True), mincnt=1, ax=ax)
 
     ani = animation.FuncAnimation(fig, animate, interval=1000, frames=time_steps)
     ani.save(out_file_path, writer='pillow')
-    # plt.show()
 
 
 def print_analysis(iteration, opinions_list):

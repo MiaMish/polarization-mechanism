@@ -17,5 +17,5 @@ class CoveredBinsMeasurement(Measurement):
     def apply_measure(self, experiment_result: ExperimentResult) -> MeasurementResult:
         return self._apply_measure_using_opinion_list_func(
             experiment_result,
-            lambda opinions_list: np.count_nonzero(np.histogram(opinions_list, self.num_of_bins)[0] != 0) / self.num_of_bins
+            lambda opinions_list: np.count_nonzero(np.histogram(opinions_list, self.num_of_bins, range=(0, 1))[0] != 0) / self.num_of_bins
         )

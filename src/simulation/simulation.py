@@ -22,6 +22,7 @@ class Simulation(ABC):
 
     def _init_opinion_list(self) -> ndarray:
         # return random.normal(0.5, 0.5/3, self.simulation_config.num_of_agents)
+        # return np.append(random.uniform(0.0, 0.1, round(self.simulation_config.num_of_agents / 2)), random.uniform(0.9, 1.0, round(self.simulation_config.num_of_agents / 2)))
         return random.uniform(0.0, 1.0, self.simulation_config.num_of_agents)
 
     def _init_mio_list(self) -> ndarray:

@@ -21,5 +21,5 @@ class VarianceInBinsMeasurement(Measurement):
         )
 
     def mean_var_in_bins(self, opinions_list: List[float]) -> float:
-        bin_means, bin_edges, binnumber = scipy.stats.binned_statistic(opinions_list, opinions_list, statistic='std', bins=self.num_of_bins, range=None)
+        bin_means, bin_edges, binnumber = scipy.stats.binned_statistic(opinions_list, opinions_list, statistic='std', bins=self.num_of_bins, range=(0, 1))
         return np.mean(bin_means)
