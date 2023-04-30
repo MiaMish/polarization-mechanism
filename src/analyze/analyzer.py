@@ -35,13 +35,25 @@ def avg_results_gif(simulation_config: SimulationConfig, results: ExperimentResu
         ax = fig.add_subplot(111, xlim=(0, 1))
         ax.set_xlim(0, 1)
         ax.set_ylim(0, 100)
+
+        # Ugly code to make the title
+        # Could I write it better? Yes.
+        # Do I want to? No.
+        # Will I? No.
+        # Should I? Yes.
         if simulation_config.simulation_type == SimulationType.REPULSIVE:
             title = "Repulsion and Attraction Dynamics"
         elif simulation_config.simulation_type == SimulationType.SIMILARITY:
             title = "Only Attraction Dynamics"
+        title = r'{} $\eta$={}'.format(title, simulation_config.radical_exposure_eta if simulation_config.radical_exposure_eta is not None else 0)
+        if i > 0:
+            ax.set_title(title)
+        else:
+            ax.set_title("Initial Opinion Distribution")
+
         ax.hist(data[i], range=(0, 1), bins=10, color='blue', alpha=0.5)
-        ax.set_title(title)
-        ax.set_ylabel(r'$\eta$={}'.format(simulation_config.radical_exposure_eta if simulation_config.radical_exposure_eta is not None else 0))
+        ax.set_ylabel("number of agents")
+        ax.set_xlabel("opinion")
         # df.plot.hexbin(x='opinion', y='y', gridsize=100, cmap='copper_r', norm=Normalize(0, 5, clip=True), mincnt=1, ax=ax)
 
     ani = animation.FuncAnimation(fig, animate, interval=1000, frames=time_steps)
